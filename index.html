@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portal Page</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/695b6357ac.js" crossorigin="anonymous"></script>
+    <style>
+        body {
+            font-family: "Poppins", serif;
+            font-weight: 700;
+            background: linear-gradient(300deg,#ffffff,#e4f6ff,#b9e4f9);
+            background-size: 180% 180%;
+            animation: gradient-animation 18s ease infinite;
+            height: 100vh;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            color: #5eddcc;
+        }
+
+        @keyframes gradient-animation {
+            0% {
+                background-position: 0% 50%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+        
+        .header {
+            font-size: 54px;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+        
+        .dummytext {
+            font-size: 24px;
+            font-weight: 400;
+            margin-bottom: 50px;
+            color: #5eddcc;
+        }
+        .dummytext2 {
+            font-size: 20px;
+            font-weight: 400;
+            text-align: center;
+        }
+        
+        .button-cancel {
+            background-color: #ffffff;
+            color: #e22424;
+            padding: 12px 40px;
+            border: 2px solid #e22424;
+            border-radius: 30px;
+            cursor: pointer;
+            font-size: 18px;
+            transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s;
+}
+        .button-cancel:hover {
+            background-color: #e22424;
+            color: white;
+            transform: scale(1.1);
+            box-shadow: 0 0 15px #e22424;
+}
+        
+        .button {
+            background-color: #ffffff;
+            color: #5eddcc;
+            padding: 12px 40px;
+            border: 2px solid #5eddcc;
+            border-radius: 30px;
+            cursor: pointer;
+            font-size: 18px;
+            transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s;
+            opacity: 0;
+            animation: button-animation 1s ease-in-out 1s forwards;
+}
+
+        .button:hover {
+            background-color: #5eddcc;
+            color: white;
+            transform: scale(1.1);
+            box-shadow: 0 0 15px #5eddcc;
+}
+        .button-container {
+            display: flex;
+            justify-content: space-between;
+            gap: 20px;
+}
+        .modal-content {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: #fff;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+}
+.topnav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  overflow: hidden;
+  background-color: #ffffff;
+  z-index: 1;
+}
+
+.topnav a {
+  float: left;
+  color: #5eddcc;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+  transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s;
+}
+
+.topnav a:hover {
+  background-color: #5eddcc;
+  color: #fff;
+  transform: scale(1.1);
+  box-shadow: 0 0 15px #5eddcc;
+}
+
+.topnav a.active {
+  background-color: #5eddcc;
+  color: white;
+}
+
+        #warning-modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+}
+
+        .modal-button-container {
+            display: flex;
+            gap: 20px;
+}
+.text {
+    opacity: 0;
+    transform: translateY(50px);
+    animation: text-animation 1s ease-in-out forwards;
+}
+
+@keyframes text-animation {
+    0% {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes button-animation {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+    </style>
+</head>
+<body>
+    <div class="topnav">
+        <a class="active" href="#home">Yu-Go-Blok</a>
+        <a href="#news">Pembaruan</a>
+        <a href="card.html">Galeri</a>
+        <a href="#about">Tentang Kami</a>
+      </div>
+    <div class="header text">Yu-Go-Blok</div>
+    <div class="dummytext text">Kumpulan kartu-kartu yang kocak.</div>
+    <div class="button-container">
+        <button class="button" onclick="location.href='card.html'">
+            <i class="fa-solid fa-book"></i> Galeri
+        </button>
+        <button class="button" onclick="showWarning()">
+            <i class="fa-solid fa-arrow-up-from-bracket"></i> Submit
+        </button>
+    </div>
+    <div id="warning-modal" style="display: none;">
+        <div class="modal-content">
+            <h2>Kamu akan diarahkan ke G-Mail.</h2>
+            <div class="dummytext2">Di situ, kamu bisa mengirimkan kartu buatanmu dan akan dimasukkan ke sini! Pastikan kartumu memenuhi persyaratan dan kebijakan.</div>
+            <div class="modal-button-container"></div>
+            <button class="button" onclick="location.href='register.html'">
+                <i class="fa-solid fa-envelope"></i> Lanjut
+            </button>
+            <button class="button-cancel" onclick="hideWarning()">
+                <i class="fa-solid fa-xmark"></i> Batal
+            </button>
+        </div>
+    </div>
+    </div>
+    <script src="./script.js"></script>
+</body>
+</html>

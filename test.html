@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search Bar Example</title>
+    <style>
+        body {
+    font-family: Arial, sans-serif;
+}
+
+.search-container {
+    margin: 20px;
+}
+
+.content {
+    margin-top: 20px;
+}
+
+.item {
+    padding: 10px;
+    border: 1px solid #ccc;
+    margin: 5px 0;
+    display: block;
+}
+    </style>
+</head>
+<body>
+    <div class="search-container">
+        <input type="text" id="searchInput" placeholder="Search...">
+    </div>
+    <div class="content">
+        <div class="item" data-keywords="apple fruit">Apple</div>
+        <div class="item" data-keywords="banana fruit">Banana</div>
+        <div class="item" data-keywords="carrot vegetable">Carrot</div>
+        <div class="item" data-keywords="date fruit">Date</div>
+        <div class="item" data-keywords="eggplant vegetable">Eggplant</div>
+    </div>
+    <script>
+        document.getElementById('searchInput').addEventListener('input', function() {
+    const searchTerm = this.value.toLowerCase();
+    const items = document.querySelectorAll('.item');
+
+    items.forEach(item => {
+        const keywords = item.getAttribute('data-keywords').toLowerCase();
+        if (keywords.includes(searchTerm)) {
+            item.style.display = 'block'; // Show the item
+        } else {
+            item.style.display = 'none'; // Hide the item
+        }
+    });
+});
+    </script>
+</body>
+</html>
