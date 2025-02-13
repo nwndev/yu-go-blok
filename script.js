@@ -37,7 +37,7 @@ function showFullCard(imageSrc) {
   const fullCardImage = document.getElementById("fullCardImage");
   fullCardImage.src = imageSrc;
   modal.style.display = "block";
-  fullCardImage.style.transform = 'scale(0.8)';
+  fullCardImage.style.transform = 'scale(0.9)';
 }
 
 function closeModal() {
